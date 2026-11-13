@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TeknologiNova</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body { background: #f8f9fa; }
+
+    .service-card {
+      cursor: pointer;
+      border: 1px solid #dee2e6;
+      border-radius: .5rem;
+      overflow: hidden;
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 .5rem 1rem rgba(0,0,0,.12);
+    }
+    .service-card.selected {
+      border-color: #0d6efd;
+      box-shadow: 0 0 0 3px rgba(13,110,253,.25);
+    }
+    /* Same image height on every card */
+    .service-card img {
+      height: 180px;
+      width: 100%;
+      object-fit: cover;
+    }
+    .service-card .card-body {
+      display: flex;
+      flex-direction: column;
+    }
+    .service-card .card-text { color: #6c757d; }
+    /* Button always sits at the bottom */
+    .service-card .btn { margin-top: auto; }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">TeknologiNova</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#">Rumah</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Layanan</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">Tentang</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Kontak</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section id="services" class="container py-5 my-4">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">Layanan Unggulan Kami</h2>
+      <p class="text-muted">Pilih layanan yang paling sesuai dengan kebutuhan bisnis Anda</p>
+    </div>
+
+    <div class="row g-4" id="serviceCards">
+
+      <div class="col-md-4">
+        <div class="card service-card h-100 shadow-sm">
+          <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=500&fit=crop"
+               alt="Cloud computing data center servers">
+          <div class="card-body">
+            <h5 class="card-title fw-bold">Infrastruktur Cloud</h5>
+            <p class="card-text">Solusi hosting dan penyimpanan yang dapat disesuaikan skalanya, dirancang untuk bisnis modern.</p>
+            <a href="#contact" class="btn btn-outline-primary w-100">Pilih Layanan</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card service-card h-100 shadow-sm">
+          <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&h=500&fit=crop"
+               alt="Software developer writing code on multiple monitors">
+          <div class="card-body">
+            <h5 class="card-title fw-bold">Perangkat Lunak Kustom</h5>
+            <p class="card-text">Mulai dari konsep hingga penerapan, kami membangun aplikasi yang andal dan dapat dikembangkan.</p>
+            <a href="#contact" class="btn btn-outline-primary w-100">Pilih Layanan</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card service-card h-100 shadow-sm">
+          <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&h=500&fit=crop"
+               alt="Cybersecurity network protection visualization">
+          <div class="card-body">
+            <h5 class="card-title fw-bold">Keamanan Siber</h5>
+            <p class="card-text">Pemantauan ancaman dan perlindungan jaringan yang proaktif untuk perusahaan, sepanjang waktu.</p>
+            <a href="#contact" class="btn btn-outline-primary w-100">Pilih Layanan</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="about" class="bg-white py-5 mb-5">
+    <div class="container text-center">
+      <h2 class="mb-3">Tentang TeknologiNova</h2>
+      <p class="col-lg-8 mx-auto">
+        TeknologiNova adalah penyedia solusi TI yang membantu perusahaan memodernisasi tumpukan teknologi mereka melalui infrastruktur cloud, perangkat lunak kustom, dan layanan keamanan tingkat perusahaan.
+      </p>
+    </div>
+  </section>
+
+  <footer id="contact" class="bg-dark text-light text-center py-4">
+    <div class="container">
+      <p class="mb-0">&copy; 2026 TeknologiNova. Hak cipta dilindungi undang-undang.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Click a card to select it (highlighted border)
+    const cards = document.querySelectorAll('.service-card');
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        cards.forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+      });
+    });
+  </script>
+</body>
+</html>
